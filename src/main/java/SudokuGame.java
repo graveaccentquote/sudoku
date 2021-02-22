@@ -23,9 +23,9 @@ public class SudokuGame {
             }
     }
 
-    public void FillTile(int rowIndex, int columnIndex)
+    public void FillTile(int rowIndex, int columnIndex, Value value)
     {
-        //TODO
+        this.rows[rowIndex].getChild(columnIndex).Fill(value);
     }
 
     private int getSquareIndex(int row, int column)
