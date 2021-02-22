@@ -35,4 +35,14 @@ public class Square extends Region {
         this.children[index] = tile;
         tile.SetSquare(this);
     }
+
+    public void AddChild(Tile tile, int rowIndex, int columnIndex) {
+        this.children[(rowIndex % 3) * 3 + columnIndex % 3] = tile;
+        tile.SetSquare(this);
+    }
+
+    public static int getSquareIndex(int row, int column)
+    {
+        return column / 3 + (row / 3) * 3;
+    }
 }

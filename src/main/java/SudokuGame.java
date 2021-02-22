@@ -9,7 +9,6 @@ public class SudokuGame {
     public SudokuGame()
     {
         Tile tile;
-        int square;
 
         for (int i=0; i<9; ++i)
         {
@@ -24,19 +23,13 @@ public class SudokuGame {
                 tile = new Tile();
                 this.rows[row].AddChild(tile, column);
                 this.columns[column].AddChild(tile, row);
-                square = this.getSquareIndex(row, column);
-                this.squares[square].AddChild(tile,(row % 3) * 3 + column % 3);
+                this.squares[Square.getSquareIndex(row, column)].AddChild(tile, row, column);
             }
     }
 
     public void FillTile(int rowIndex, int columnIndex, Value value)
     {
         this.rows[rowIndex].getChild(columnIndex).Fill(value);
-    }
-
-    private int getSquareIndex(int row, int column)
-    {
-        return column / 3 + (row / 3) * 3;
     }
 
     public Column[] getColumns() { return this.columns; }
