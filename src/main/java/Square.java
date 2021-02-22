@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Square extends Region {
 
     public Square(){}
@@ -5,17 +7,17 @@ public class Square extends Region {
     public String toString() {
         StringBuilder acc = new StringBuilder("");
 
-        for (int i=1; i<10; ++i)
+        for (int i=0; i<9; ++i)
         {
             acc.append("| ");
             acc.append(children[i].toString());
             acc.append(" ");
 
-            if (i % 3 == 0)
+            if ((i+1) % 3 == 0)
             {
                 acc.append("|");
                 acc.append("\n");
-                acc.append("----------------------");
+                acc.append("------------------------");
                 acc.append("\n");
             }
         }

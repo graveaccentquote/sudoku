@@ -17,7 +17,7 @@ public abstract class Region{
     {
         ArrayList<Value> result = new ArrayList<Value>();
 
-        for (int i=1; i<10 ; ++i)
+        for (int i=0; i<9 ; ++i)
             if (this.checkIfValidPlacement(i))
                 result.add(Value.values()[i]);
 
