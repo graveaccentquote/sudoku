@@ -54,4 +54,6 @@ public class Tile {
     {
         this.column = column;
     }
+
+    public Value GetValue() { return this.value; }
 }
