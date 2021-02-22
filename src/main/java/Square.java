@@ -8,7 +8,7 @@ public class Square extends Region {
         for (int i=1; i<10; ++i)
         {
             acc.append("| ");
-            acc.append(children.get(i).toString());
+            acc.append(children[i].toString());
             acc.append(" ");
 
             if (i % 3 == 0)
@@ -23,9 +23,14 @@ public class Square extends Region {
         return acc.toString();
     }
 
+    public Tile getChildFrom2Indexes(int row, int column)
+    {
+        return this.children[row % 3 + (column % 3) * 3];
+    }
+
     @Override
     public void AddChild(Tile tile, int index) {
-        this.children.put(index, tile);
+        this.children[index] = tile;
         tile.SetSquare(this);
     }
 }

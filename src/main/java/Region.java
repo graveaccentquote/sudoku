@@ -3,12 +3,14 @@ import java.util.HashMap;
 
 public abstract class Region{
 
-    protected HashMap<Integer, Tile> children = new HashMap<Integer, Tile>();
+    protected Tile[] children = new Tile[9];
 
-    public boolean checkPlacement(int i)
+    public boolean checkIfValidPlacement(int i)
     {
-        //return !(this.children.containsValue(Value.values()[i]));
-        return false; //TODO
+        for (Tile child : children)
+            if (child.GetValue() == Value.values()[i])
+                return false;
+        return true;
     }
 
     public ArrayList<Value> getPossibleFillings()
@@ -16,11 +18,13 @@ public abstract class Region{
         ArrayList<Value> result = new ArrayList<Value>();
 
         for (int i=1; i<10 ; ++i)
-            if (this.checkPlacement(i))
+            if (this.checkIfValidPlacement(i))
                 result.add(Value.values()[i]);
 
         return result;
     }
 
     public abstract void AddChild(Tile tile, int index);
+
+    public Tile getChild(int index){ return children[index]; }
 }

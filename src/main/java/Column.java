@@ -8,7 +8,7 @@ public class Column extends Region {
         for (int i=1; i<10; ++i)
         {
             acc.append("| ");
-            acc.append(children.get(i).toString());
+            acc.append(children[i].toString());
             acc.append(" |");
             acc.append("\n");
         }
@@ -18,7 +18,7 @@ public class Column extends Region {
 
     @Override
     public void AddChild(Tile tile, int index) {
-        this.children.put(index, tile);
+        this.children[index] = tile;
         tile.SetColumn(this);
     }
 }
