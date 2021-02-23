@@ -24,15 +24,15 @@ public class Tile {
     public ArrayList<Value> GetPossibleFillings()
     {
         //Get the set of rows
-        HashSet<Value> result = new HashSet<Value>(this.row.getPossibleFillings());
+        HashSet<Value> result = new HashSet<>(this.row.getPossibleFillings());
         //Intersect the set with the column Set
-        result.retainAll( new HashSet<Value>(this.column.getPossibleFillings()));
+        result.retainAll( new HashSet<>(this.column.getPossibleFillings()));
         //Intersect it again with the square Set
-        result.retainAll( new HashSet<Value>(this.square.getPossibleFillings()));
+        result.retainAll( new HashSet<>(this.square.getPossibleFillings()));
         //Remove the empty values
         result.remove(Value.EMPTY);
 
-        return new ArrayList<Value>(result);
+        return new ArrayList<>(result);
     }
 
     public String toString()

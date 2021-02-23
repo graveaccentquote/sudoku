@@ -3,16 +3,14 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class SudokuGame {
 
-    private Square[] squares = new Square[9];
+    private final Square[] squares = new Square[9];
 
-    private Row[] rows = new Row[9];
+    private final Row[] rows = new Row[9];
 
-    private Column[] columns = new Column[9];
+    private final Column[] columns = new Column[9];
 
     public SudokuGame()
     {
@@ -60,20 +58,14 @@ public class SudokuGame {
     }
 
 
-    public void FillTile(int rowIndex, int columnIndex, Value value)
+    public void fillTile(int rowIndex, int columnIndex, Value value)
     {
         this.rows[rowIndex].getChild(columnIndex).Fill(value);
     }
 
-    public Column[] getColumns() { return this.columns; }
-
-    public Row[] getRows() { return  this.rows; }
-
-    public Square[] getSquares() { return this.squares; }
-
     public String toString()
     {
-        StringBuilder result = new StringBuilder("");
+        StringBuilder result = new StringBuilder();
 
         for (Row row : rows)
         {
@@ -89,7 +81,7 @@ public class SudokuGame {
 
         JSONParser parser = new JSONParser();
         try {
-            String value = "";
+            String value;
 
             Object obj = parser.parse(new FileReader(fileName));
             JSONObject jsonObject = (JSONObject) obj;

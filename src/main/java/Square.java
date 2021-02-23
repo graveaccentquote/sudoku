@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Square extends Region {
 
     public Square()
@@ -15,7 +13,7 @@ public class Square extends Region {
     }
 
     public String toString() {
-        StringBuilder acc = new StringBuilder("");
+        StringBuilder acc = new StringBuilder();
 
         for (int i=0; i<9; ++i)
         {
@@ -33,11 +31,6 @@ public class Square extends Region {
         }
 
         return acc.toString();
-    }
-
-    public Tile getChildFrom2Indexes(int row, int column)
-    {
-        return this.children[row % 3 + (column % 3) * 3];
     }
 
     @Override
