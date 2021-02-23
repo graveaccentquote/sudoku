@@ -2,7 +2,17 @@ import java.util.Arrays;
 
 public class Square extends Region {
 
-    public Square(){}
+    public Square()
+    {
+        for (int i=0; i<9; ++i)
+            this.children[i] = new Tile();
+    }
+
+    public Square(Value[] values)
+    {
+        for (int i=0; i<9; ++i)
+            this.children[i] = new Tile(values[i]);
+    }
 
     public String toString() {
         StringBuilder acc = new StringBuilder("");

@@ -10,29 +10,29 @@ public class Tile {
     private Square square;
 
     ///Constructors
-    public Tile()
-    {
-        this.Fill(Value.EMPTY);
-    }
+    public Tile(){ this.value = (Value.EMPTY); }
+
+    public Tile(Value value) { this.Fill(value); }
 
     ///Methods
 
     public void Fill(Value value)  {
-        assert (value.getValue() > 0 && value.getValue() < 10);
+        assert (value.getValue() > 0 && value.getValue() < 10) : "Trying to invalid value";
         this.value = value;
     }
 
     public ArrayList<Value> GetPossibleFillings()
     {
-        //Get the first set
-        HashSet<Value> resultSet = new HashSet<Value>(this.row.getPossibleFillings());
+        //Get the set of rows
+        HashSet<Value> result = new HashSet<Value>(this.row.getPossibleFillings());
         //Intersect the set with the column Set
-        resultSet.retainAll( new HashSet<Value>(this.column.getPossibleFillings()));
-        //Intersect it with the square Set as well
-        resultSet.retainAll( new HashSet<Value>(this.square.getPossibleFillings()));
-        resultSet.remove(Value.EMPTY);
+        result.retainAll( new HashSet<Value>(this.column.getPossibleFillings()));
+        //Intersect it again with the square Set
+        result.retainAll( new HashSet<Value>(this.square.getPossibleFillings()));
+        //Remove the empty values
+        result.remove(Value.EMPTY);
 
-        return new ArrayList<Value>(resultSet);
+        return new ArrayList<Value>(result);
     }
 
     public String toString()

@@ -1,6 +1,16 @@
 public class Column extends Region {
 
-    public Column(){}
+    public Column()
+    {
+        for (int i=0; i<9; ++i)
+            this.children[i] = new Tile();
+    }
+
+    public Column(Value[] values)
+    {
+        for (int i=0; i<9; ++i)
+            this.children[i] = new Tile(values[i]);
+    }
 
     public String toString() {
         StringBuilder acc = new StringBuilder("");

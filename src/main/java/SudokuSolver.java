@@ -1,20 +1,18 @@
+import java.io.FileReader;
+import java.util.ArrayList;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+
 public class SudokuSolver {
 
     public static void main(String[] argv)
     {
         SudokuGame game = new SudokuGame();
+        //SudokuGame game = new SudokuGame("./boards/board1.json");
 
-        Column[] cols = game.getColumns();
-        Row[] rows = game.getRows();
-        Square[] squares = game.getSquares();
-
-        for (Column col : cols)
-            System.out.println(col.toString());
-
-        for (Row row : rows)
-            System.out.println(row.toString());
-
-        for (Square square : squares)
-            System.out.println(square.toString());
+        System.out.println(game.toString());
     }
 }
