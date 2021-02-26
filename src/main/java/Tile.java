@@ -16,10 +16,12 @@ public class Tile {
 
     ///Methods
 
-    public void Fill(Value value)  {
+    public void fill(Value value)  {
         assert (value.getValue() > 0 && value.getValue() < 10) : "Trying to invalid value";
         this.value = value;
     }
+
+    public void empty() { this.value = Value.EMPTY; }
 
     public ArrayList<Value> GetPossibleFillings()
     {

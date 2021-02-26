@@ -60,7 +60,12 @@ public class SudokuGame {
 
     public void fillTile(int rowIndex, int columnIndex, Value value)
     {
-        this.rows[rowIndex].getChild(columnIndex).Fill(value);
+        this.rows[rowIndex].getChild(columnIndex).fill(value);
+    }
+
+    public void emptyTile(int rowIndex, int columnIndex)
+    {
+        this.rows[rowIndex].getChild(columnIndex).empty();
     }
 
     public String toString()
